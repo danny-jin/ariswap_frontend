@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "https://ariswap.co/static/css/main.a8a8158b.chunk.css",
+    "main.js": "https://ariswap.co/static/js/main.6112db78.chunk.js",
+    "main.js.map": "https://ariswap.co/static/js/main.6112db78.chunk.js.map",
+    "runtime-main.js": "https://ariswap.co/static/js/runtime-main.77e7e4df.js",
+    "runtime-main.js.map": "https://ariswap.co/static/js/runtime-main.77e7e4df.js.map",
+    "static/css/2.085f3a7b.chunk.css": "https://ariswap.co/static/css/2.085f3a7b.chunk.css",
+    "static/js/2.15f6db6f.chunk.js": "https://ariswap.co/static/js/2.15f6db6f.chunk.js",
+    "static/js/2.15f6db6f.chunk.js.map": "https://ariswap.co/static/js/2.15f6db6f.chunk.js.map",
+    "index.html": "https://ariswap.co/index.html",
+    "static/css/2.085f3a7b.chunk.css.map": "https://ariswap.co/static/css/2.085f3a7b.chunk.css.map",
+    "static/css/main.a8a8158b.chunk.css.map": "https://ariswap.co/static/css/main.a8a8158b.chunk.css.map",
+    "static/js/2.15f6db6f.chunk.js.LICENSE.txt": "https://ariswap.co/static/js/2.15f6db6f.chunk.js.LICENSE.txt",
+    "static/media/binance.1228492c.svg": "https://ariswap.co/static/media/binance.1228492c.svg",
+    "static/media/placeholder.91c4e379.png": "https://ariswap.co/static/media/placeholder.91c4e379.png",
+    "static/media/slick-theme.min.css": "https://ariswap.co/static/media/slick.c94f7671.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.77e7e4df.js",
+    "static/css/2.085f3a7b.chunk.css",
+    "static/js/2.15f6db6f.chunk.js",
+    "static/css/main.a8a8158b.chunk.css",
+    "static/js/main.6112db78.chunk.js"
+  ]
+}
