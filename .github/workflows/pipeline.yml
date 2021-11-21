@@ -41,13 +41,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install Node module by using ${{ matrix.node-version }}
-        run: yarn install
+        run: npm install
 
       # - name: Test esLint
       #   run: npm run lint
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Copy build files to production server
         uses: appleboy/scp-action@master
