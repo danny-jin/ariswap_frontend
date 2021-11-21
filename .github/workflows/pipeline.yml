@@ -47,7 +47,7 @@ jobs:
       #   run: npm run lint
 
       - name: Build
-        run: yarn run build
+        run: yarn build
 
       - name: Copy build files to production server
         uses: appleboy/scp-action@master
