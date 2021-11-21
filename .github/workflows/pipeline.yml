@@ -53,7 +53,7 @@ jobs:
           username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
           source: "build"
-          target: "/ariswap/frontend"
+          target: "/home/ubuntu/ariswap/frontend"
 
       # - name: Slack Notify
       #   uses: 8398a7/action-slack@v3
