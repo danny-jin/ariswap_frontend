@@ -17,7 +17,11 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
+          username: ${{ secrets.USER }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            whoami
+            cd /home/ubuntu/ariswap/ariswap_frontend
+            git pull
+            yarn
+            yarn build
+            cp -r build /var/www/frontend/
