@@ -455,7 +455,7 @@ class CreateNFT extends Component {
             </div>
             <div className="row justify-content-center">
               <div className="col-12 col-md-12">
-                <h2>My Item</h2>
+                <h2>My Items</h2>
               </div>
             </div>
           </div>
