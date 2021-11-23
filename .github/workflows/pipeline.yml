@@ -20,8 +20,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           script: |
-            cd /home/ubuntu/ariswap/ariswap_frontend
-            git pull
-            yarn
-            yarn build
-            cp -r build /var/www/frontend/
+            whoami
