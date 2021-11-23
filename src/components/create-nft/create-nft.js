@@ -17,8 +17,9 @@ import {
   beforeCollection,
   getCollections,
 } from "../collections/collections.actions";
+import { getNFTs } from "../nfts/nfts.action";
 import { getCurrentAddress } from "../../utils/web3";
-import { RiArrowDropDownLine } from "react";
+import NftCard from "../collections/components/NftCard/NftCard";
 import "./createNft.css";
 const placeholderImg = "";
 
@@ -29,6 +30,8 @@ class CreateNFT extends Component {
       isSubmitted: false,
       formValid: true,
       loader: true,
+      nfts: null,
+      creators: [],
       errors: "",
       nft: {
         userId: ENV.getUserKeys("_id")._id,
@@ -58,8 +61,8 @@ class CreateNFT extends Component {
   componentDidMount = async () => {
     window.scroll(0, 0);
     this.props.getCollections();
+    this.props.getNFTs();
     let ownerAddress = await getCurrentAddress();
-
     let { nft } = this.state;
     nft = { ...nft, ownerAddress: ownerAddress };
     this.setState({
@@ -67,8 +70,9 @@ class CreateNFT extends Component {
     });
   };
 
-  componentDidUpdate() {
+  async componentDidUpdate() {
     if (this.props.collection.getAuth) {
+      console.log(this.props.nft);
       const { collections } = this.props.collection;
       this.props.beforeCollection();
       if (!collections) {
@@ -78,6 +82,21 @@ class CreateNFT extends Component {
         var myCollections = collections.filter(
           (item) => item.userId === ENV.getUserKeys("_id")._id
         );
+      if (this.props.nft.nftsAuth) {
+        const { nftsData } = this.props.nft;
+        let ownerAddress = await getCurrentAddress();
+        const result_nft = nftsData.filter(
+          (nft) => nft?.ownerAddress === ownerAddress
+        );
+        this.setState({
+          nfts: result_nft,
+        });
+      }
+      if (this.props.user.topSellersAuth) {
+        this.setState({
+          creators: this.props.user.sellers,
+        });
+      }
       this.setState({
         collections: myCollections,
         loader: false,
@@ -201,7 +220,16 @@ class CreateNFT extends Component {
   };
 
   render() {
-    const { nft, errors, loader, isSubmitted, collections } = this.state;
+    const {
+      nft,
+      nfts,
+      nftsLoader,
+      errors,
+      loader,
+      isSubmitted,
+      collections,
+      creators,
+    } = this.state;
     if (!ENV.getUserKeys("_id")._id) {
       toast.error("Please login to create NFT");
       this.props.history.push("/");
@@ -453,10 +481,28 @@ class CreateNFT extends Component {
                 </form>
               </div>
             </div>
-            <div className="row justify-content-center">
-              <div className="col-12 col-md-12">
-                <h2>My Items</h2>
+            <br />
+            <br />
+            <div className="row justify-content-between">
+              {/* Intro */}
+              <div className="col-12">
+                <div className="intro">
+                  <div className="intro-content">
+                    <span>Explore my items</span>
+                    <h3 className="mt-3 mb-0">My Items</h3>
+                  </div>
+                </div>
               </div>
+            </div>
+            <div className="row justify-content-start">
+              {nfts &&
+                nfts.map((nft, index) => {
+                  return (
+                    <div className="col-3 mt-5" key={index}>
+                      <NftCard nft={nft} creators={creators} />
+                    </div>
+                  );
+                })}
             </div>
           </div>
         </section>
@@ -468,8 +514,12 @@ class CreateNFT extends Component {
 const mapStateToProps = (state) => ({
   error: state.error,
   collection: state.collection,
+  nft: state.nft,
+  user: state.user,
 });
 
-export default connect(mapStateToProps, { beforeCollection, getCollections })(
-  CreateNFT
-);
+export default connect(mapStateToProps, {
+  beforeCollection,
+  getCollections,
+  getNFTs,
+})(CreateNFT);
