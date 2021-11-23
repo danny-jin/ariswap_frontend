@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           script: |
             cd /home/ubuntu/ariswap/ariswap_frontend
-            git pull https://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@github.com/danny-jin/ariswap_frontend.git
+            git pull
             yarn install
             yarn build
             cp -r build /var/www/frontend/
