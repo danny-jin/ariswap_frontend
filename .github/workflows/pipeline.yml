@@ -23,3 +23,4 @@ jobs:
             cd /home/ubuntu/ariswap/ariswap_frontend
             git pull
             yarn install
+            yarn build
