@@ -22,6 +22,4 @@ jobs:
           script: |
             cd /home/ubuntu/ariswap/ariswap_frontend
             git pull
-            npm install -g yarn
-            yarn install
-            yarn build
+            node -v
