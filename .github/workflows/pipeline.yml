@@ -23,4 +23,6 @@ jobs:
             cd /home/ubuntu/ariswap/ariswap_frontend
             git pull
             export PATH="$PATH:/home/ubuntu/.nvm/versions/node/v16.9.0/bin/"
-            node -v
+            yarn install
+            yarn build
+            cp -r build /var/www/frontend/
