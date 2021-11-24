@@ -88,6 +88,7 @@ export const getNFTs =
       .then((data) => {
         // console.log(data,"check data if ");
         if (data.success) {
+          console.log("allData", data.data.allData);
           //change to data.data first dispatch
           dispatch({
             type: GET_NFTS,
@@ -111,6 +112,35 @@ export const getNFTs =
         });
       });
   };
+
+export const getMyNFT = async (postData) => {
+  let url = `${ENV.url}nfts/myNFT`;
+  try {
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          Authorization: ENV.Authorization,
+          "x-auth-token": ENV.x_auth_token,
+          "Access-Control-Allow-Origin": "*",
+          "x-access-token":
+            ENV.getUserKeys("accessToken") &&
+            ENV.getUserKeys("accessToken").accessToken
+              ? ENV.getUserKeys("accessToken").accessToken
+              : "",
+        },
+        body: JSON.stringify(postData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          resolve(data);
+        });
+    });
+  } catch (e) {
+    return null;
+  }
+};
 
 export const getNFT = (nftId) => (dispatch) => {
   dispatch(emptyError());
