@@ -87,6 +87,7 @@ const CreateNFT = () => {
         payload: data.data.nfts,
       });
     }
+    console.log("data: ", data);
     setLoader(false);
     return () => {
       dispatch(beforeCollection());
