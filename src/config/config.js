@@ -5,6 +5,8 @@ const moment = require("moment");
 
 export const ENV = {
   // blockchain variables
+  ariSwapContractAddress: process.env.REACT_APP_ARISWAP_CONTRACT_ADDRESS,
+  celoPunkContractAddress: process.env.REACT_APP_CELO_PUNK_CONTRACT_ADDRESS,
   nftContractAddress: process.env.REACT_APP_NFT_CONTRACT_ADDRESS,
   web3ProviderAddress: process.env.REACT_APP_WEB3_PROVIDER_ADDRESS,
 
