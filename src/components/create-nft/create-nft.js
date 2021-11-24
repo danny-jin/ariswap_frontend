@@ -146,7 +146,8 @@ const CreateNFT = () => {
     setNft(tempNft);
   };
 
-  const reset = () => {
+  const reset = async () => {
+    let ownerAddress = await getCurrentAddress();
     let initNft = {
       userId: ENV.getUserKeys("_id")._id,
       image: "",
@@ -157,7 +158,7 @@ const CreateNFT = () => {
       size: "",
       copies: "",
       collectionId: "",
-      ownerAddress: state.ownerAddress,
+      ownerAddress: ownerAddress,
       status: 1, // 1 = put on sale, 2 = instant sale price, 3 = unlock purchased
     };
     setNft(initNft);
