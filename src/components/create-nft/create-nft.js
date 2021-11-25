@@ -22,6 +22,7 @@ import NftCard from "../collections/components/NftCard/NftCard";
 import "./createNft.css";
 import { getMyNFT } from "../nfts/nfts.action";
 import { GET_NFTS, NFTALL } from "../../redux/types";
+import UploadWidget from "./uploadWidget";
 
 const placeholderImg = "";
 
@@ -165,6 +166,7 @@ const CreateNFT = () => {
   };
 
   const submit = async (e) => {
+    console.log("image: ", nft.image);
     e.preventDefault();
     setIsSubmitted(true);
     if (validator.allValid() && nft.collectionId) {
@@ -256,6 +258,11 @@ const CreateNFT = () => {
                     </span>
                   </div>
                 </div>
+                {/* <div className="col-12">
+                  <div className="form-group mt-3">
+                    <UploadWidget />
+                  </div>
+                </div> */}
                 <div className="col-12">
                   <div className="form-group mt-3">
                     <input
